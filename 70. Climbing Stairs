@@ -1,0 +1,17 @@
+class Solution {
+    public int climbStairs(int n) {
+        if(n<=3) return n;
+        else{
+            int[] dp = new int[2];
+            dp[0] = 2;
+            dp[1] = 3;
+            int temp=0;
+            for(int i=4;i<=n;++i){
+                temp = dp[1];
+                dp[1] = dp[0]+dp[1];
+                dp[0] = temp;
+            }
+            return dp[1];
+        }
+    }
+}
