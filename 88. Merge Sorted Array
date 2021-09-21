@@ -1,0 +1,19 @@
+class Solution {
+    public void merge(int[] nums1, int m, int[] nums2, int n) {
+        int k=0,i=0,j=0;
+        int[] newarr = new int[m+n];
+        while(k<m+n){
+            if(n==0 || i==n){
+                newarr[k++]=nums1[j++];
+                continue;
+            }
+            while(i<n && j<m && nums2[i]>=nums1[j]){
+                newarr[k++]=nums1[j++];
+            }
+            newarr[k++] = nums2[i++];
+        }
+        for(int r=0;r<m+n;++r){
+            nums1[r]=newarr[r];
+        }
+    }
+}
