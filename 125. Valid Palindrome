@@ -1,0 +1,21 @@
+class Solution {
+    boolean isAlphaNum(char c){
+        if( (48<=c && c<=57) || (65<=c && c<=90) || (97<=c && c<=122))
+            return true;
+        return false;
+    }
+    public boolean isPalindrome(String s) {
+        s = s.toLowerCase();
+       int begin=0,end=s.length()-1;
+        while(begin<end)
+        {
+            while(begin<end && !isAlphaNum(s.charAt(begin))) begin++;
+            while(begin<end && !isAlphaNum(s.charAt(end))) end--;
+            if(s.charAt(begin)!=s.charAt(end))  
+                return false; 
+            begin++;
+            end--;
+        }
+        return true;
+    }
+}
