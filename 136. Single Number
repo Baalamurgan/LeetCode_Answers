@@ -1,0 +1,28 @@
+/* XOR solution
+class Solution {
+    public int singleNumber(int[] nums) {
+        int s =0;
+        for(int i=0;i<nums.length;i++)
+        {
+            System.out.println(s);
+            s = s ^ nums[i];
+            System.out.println(s);
+        }
+        return s;
+    }
+}
+*/
+class Solution {
+    public int singleNumber(int[] nums) {
+        Arrays.sort(nums);
+        for(int i=0;i<nums.length;i+=2){
+            if(i == nums.length-1){
+                return nums[i];
+            }
+            if(nums[i] != nums[i+1]){
+                return nums[i];
+            }
+        }
+        return 0;
+    }
+}
