@@ -1,0 +1,27 @@
+import java.math.BigInteger;
+class Solution {
+    public List<Integer> addToArrayForm(int[] num, int k) {
+        LinkedList list = new LinkedList();  
+        int n = num.length,i=n;
+        while (--i >= 0 || k > 0) {
+            if (i >= 0)
+                k += num[i];
+            list.addFirst(k % 10);
+            k /= 10;
+        }
+
+        return list;
+        // String s = "";
+        // for(int i:num){
+        //     s += i;
+        // }
+        // BigInteger acnum = new BigInteger(s);
+        // BigInteger addk = BigInteger.valueOf(k);
+        // acnum = acnum.add(addk);
+        // s = acnum.toString();
+        // for(int i=0;i<s.length();++i){
+        //     list.add(Integer.parseInt(String.valueOf(s.charAt(i))));
+        // }
+        // return list;
+    }
+}
